@@ -4,10 +4,10 @@ import data.fp.basic
 def povrch_kvadru (a b c : ℕ) : ℕ :=
 0 -- TODO
 
-#eval povrch_kvadru 2 3 4
-#eval povrch_kvadru 6 6 6
-#eval povrch_kvadru 14 0 7
-#eval povrch_kvadru 999 1000 1001
+#eval povrch_kvadru 2 3 4    /- `52` -/
+#eval povrch_kvadru 6 6 6    /- `216` -/
+#eval povrch_kvadru 14 0 7    /- `196` -/
+#eval povrch_kvadru 999 1000 1001   /- `5999998` -/
 
 
 meta def ciferny_soucet : ℕ → ℕ :=
