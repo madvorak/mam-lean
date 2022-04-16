@@ -13,7 +13,7 @@ def povrch_kvadru (a b c : ℕ) : ℕ :=
 meta def ciferny_soucet : ℕ → ℕ :=
 0 -- TODO
 
-def ciferace : ℕ → ℕ :=
+meta def ciferace : ℕ → ℕ :=
 0 -- TODO
 
 #eval ciferny_soucet 3    /- `3` -/
