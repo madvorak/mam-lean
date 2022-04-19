@@ -1,4 +1,5 @@
 import data.fp.basic
+import dil_1_casopis
 
 
 def povrch_kvadru (a b c : ℕ) : ℕ :=
@@ -10,26 +11,22 @@ def povrch_kvadru (a b c : ℕ) : ℕ :=
 #eval povrch_kvadru 999 1000 1001   /- `5999998` -/
 
 
-meta def ciferny_soucet : ℕ → ℕ :=
-0 -- TODO
+def je_ctvrta_mocnina (a : ℕ) : bool :=
+ff -- TODO
 
-meta def ciferace : ℕ → ℕ :=
-0 -- TODO
-
-#eval ciferny_soucet 3    /- `3` -/
-#eval ciferace       3    /- `3` -/
-#eval ciferny_soucet 52    /- `7` -/
-#eval ciferace       52    /- `7` -/
-#eval ciferny_soucet 919    /- `19` -/
-#eval ciferace       919    /- `1` -/
-#eval ciferny_soucet 999    /- `27` -/
-#eval ciferace       999    /- `9` -/
-#eval ciferny_soucet 123456    /- `21` -/
-#eval ciferace       123456    /- `3` -/
-#eval ciferny_soucet 100000000000000000000000000000000000000000000000000000001    /- `2` -/
-#eval ciferace       100000000000000000000000000000000000000000000000000000001    /- `2` -/
-#eval ciferny_soucet 9999999999999999999999999999999999999999999999999999999999999    /- `549` -/
-#eval ciferace       9999999999999999999999999999999999999999999999999999999999999    /- `9` -/
+#eval je_ctvrta_mocnina 0    /- `tt` -/
+#eval je_ctvrta_mocnina 1    /- `tt` -/
+#eval je_ctvrta_mocnina 2    /- `ff` -/
+#eval je_ctvrta_mocnina 3    /- `ff` -/
+#eval je_ctvrta_mocnina 4    /- `ff` -/
+#eval je_ctvrta_mocnina 15    /- `ff` -/
+#eval je_ctvrta_mocnina 16    /- `tt` -/
+#eval je_ctvrta_mocnina 17    /- `ff` -/
+#eval je_ctvrta_mocnina 100    /- `ff` -/
+#eval je_ctvrta_mocnina 256    /- `tt` -/
+#eval je_ctvrta_mocnina 625    /- `tt` -/
+#eval je_ctvrta_mocnina 1000    /- `ff` -/
+#eval je_ctvrta_mocnina 10000    /- `tt` -/
 
 
 meta def reseni_kvadraticke_rovnice (a b c : native.float) : list native.float :=
@@ -98,3 +95,47 @@ meta def reseni_kvadraticke_rovnice (a b c : native.float) : list native.float :
 /- `25x^2 + 40x + 16 = 0` -/
 #eval reseni_kvadraticke_rovnice 25 40 16
 /- `[-0.8]` -/
+
+
+meta def ciferny_soucet : ℕ → ℕ :=
+0 -- TODO
+
+meta def ciferace : ℕ → ℕ :=
+0 -- TODO
+
+#eval ciferny_soucet 3    /- `3` -/
+#eval ciferace       3    /- `3` -/
+#eval ciferny_soucet 52    /- `7` -/
+#eval ciferace       52    /- `7` -/
+#eval ciferny_soucet 919    /- `19` -/
+#eval ciferace       919    /- `1` -/
+#eval ciferny_soucet 999    /- `27` -/
+#eval ciferace       999    /- `9` -/
+#eval ciferny_soucet 123456    /- `21` -/
+#eval ciferace       123456    /- `3` -/
+#eval ciferny_soucet 100000000000000000000000000000000000000000000000000000001    /- `2` -/
+#eval ciferace       100000000000000000000000000000000000000000000000000000001    /- `2` -/
+#eval ciferny_soucet 9999999999999999999999999999999999999999999999999999999999999    /- `549` -/
+#eval ciferace       9999999999999999999999999999999999999999999999999999999999999    /- `9` -/
+
+
+def je_prvocislo (a : ℕ) : bool :=
+ff -- TODO
+
+def je_dokonale_cislo (a : ℕ) : bool :=
+ff -- TODO
+
+def vypis_splnujici_do (podminka : ℕ → bool) (n : ℕ) :=
+list.filter (λ x, podminka x) (list.range (n + 1))
+
+def seznam_prvocisel_do (n : ℕ) :=
+vypis_splnujici_do je_prvocislo n
+
+def seznam_dokonalych_cisel_do (n : ℕ) :=
+vypis_splnujici_do je_dokonale_cislo n
+
+#eval seznam_prvocisel_do 40
+
+#eval seznam_dokonalych_cisel_do 500
+
+#eval seznam_dokonalych_cisel_do 10000

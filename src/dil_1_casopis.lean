@@ -50,4 +50,3 @@ def fibonacci : ℕ → ℕ
 #eval fibonacci 5
 #eval fibonacci 10
 #eval fibonacci 33
-
