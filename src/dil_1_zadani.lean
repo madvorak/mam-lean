@@ -50,11 +50,11 @@ meta def reseni_kvadraticke_rovnice (a b c : native.float) : list native.float :
 
 /- `x^2 + 2x + 1 = 0` -/
 #eval reseni_kvadraticke_rovnice 1 2 1
-/- `` -/
+/- `[-1]` -/
 
 /- `x^2 + x + 1 = 0` -/
 #eval reseni_kvadraticke_rovnice 1 1 1
-/- `[-1]` -/
+/- `[]` -/
 
 /- `x^2 + -6x + 9 = 0` -/
 #eval reseni_kvadraticke_rovnice 1 (-6) 9
