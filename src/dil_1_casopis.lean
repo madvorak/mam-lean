@@ -62,3 +62,22 @@ def fibonacci : ℕ → ℕ
 #eval fibonacci 5
 #eval fibonacci 10
 #eval fibonacci 33
+
+
+meta def ciferny_soucet : ℕ → ℕ
+| 0 := 0
+| 1 := 1
+| 2 := 2
+| 3 := 3
+| 4 := 4
+| 5 := 5
+| 6 := 6
+| 7 := 7
+| 8 := 8
+| 9 := 9
+| a := ciferny_soucet (a / 10) + (a % 10)
+
+meta def ciferny_soucet' (a : ℕ) : ℕ :=
+if a < 10
+then a
+else ciferny_soucet (a / 10) + (a % 10)

@@ -97,9 +97,6 @@ meta def reseni_kvadraticke_rovnice (a b c : native.float) : list native.float :
 /- `[-0.8]` -/
 
 
-meta def ciferny_soucet : ℕ → ℕ :=
-0 -- TODO
-
 meta def ciferace : ℕ → ℕ :=
 0 -- TODO
 
