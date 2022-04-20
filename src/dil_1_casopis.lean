@@ -33,6 +33,18 @@ def je_ctverec (a : ℕ) : bool :=
 #eval je_ctverec 4
 
 
+def dvojice_rostouci (x y : ℤ) : list ℤ :=
+if x = y
+then [x]
+else if x < y
+     then [x, y]
+     else [y, x]
+
+#eval dvojice_rostouci 4 6
+#eval dvojice_rostouci 5 (-5)
+#eval dvojice_rostouci 8 8
+
+
 def faktorial : ℕ → ℕ
 | 0     := 1
 | (n+1) := (n+1) * (faktorial n)
