@@ -97,3 +97,25 @@ meta def szn_desetinnych : list native.float := [5.5, -4.4, 10, 1/100]
 meta def szn_funkci : list (native.float → native.float) := [(λ x, 2 * x), (λ x, x * x / 10)]
 #eval soucet_gen szn_funkci 5
 #eval soucet_gen (obrat_gen szn_funkci) 30
+
+
+def je_konstantni {α : Type} [decidable_eq α] : list α → bool
+|  []                        := tt
+|  [cokoliv]                 := tt
+| (prvni :: druhy :: zbytek) := (prvni = druhy) && je_konstantni (druhy :: zbytek)
+
+#eval je_konstantni [5, 5, 5, 5]
+#eval je_konstantni [5, 5, 3, 5]
+#eval je_konstantni [1, 5, 5, 5]
+#eval je_konstantni [5, 5, 5, 4]
+#eval je_konstantni ['a', 'A']
+#eval je_konstantni ['a', 'a']
+
+
+def duplikuj_licha : list ℕ → list ℕ
+|        []         := []
+| (hlava :: zbytek) := if hlava % 2 = 1
+                       then hlava :: hlava :: duplikuj_licha zbytek
+                       else          hlava :: duplikuj_licha zbytek
+
+#eval duplikuj_licha [3, 1, 6, 2, 5, 8, 8, 1]
